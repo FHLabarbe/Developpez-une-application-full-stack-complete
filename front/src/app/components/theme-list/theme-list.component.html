@@ -1,0 +1,11 @@
+<h2>Liste des thèmes</h2>
+<ul>
+  <li *ngFor="let t of themes">
+    <strong>{{ t.name }}</strong> - {{ t.description }}
+  </li>
+</ul>
+
+<h3>Ajouter un nouveau thème</h3>
+<input [(ngModel)]="newTheme.name" placeholder="Nom du thème" />
+<input [(ngModel)]="newTheme.description" placeholder="Description" />
+<button (click)="addTheme()">Créer</button>
