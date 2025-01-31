@@ -1,0 +1,24 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+}
+
+.logo img {
+  width: 600px;
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  } 
+}

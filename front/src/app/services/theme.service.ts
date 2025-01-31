@@ -1,12 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface Theme {
-  id?: number;
-  name: string;
-  description?: string;
-}
+import { Theme } from '../models/theme';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +12,12 @@ export class ThemeService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Theme[]> {
+  public getThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(this.baseUrl);
   }
 
-  createTheme(theme: Theme): Observable<Theme> {
-    return this.http.post<Theme>(this.baseUrl, theme);
+  public subscribeToTheme(themeId: number): Observable<any> {
+    const url = `${this.baseUrl}/${themeId}/subscribe`;
+    return this.http.post(url, {});
   }
 }

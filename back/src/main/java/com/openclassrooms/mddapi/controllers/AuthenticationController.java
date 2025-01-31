@@ -33,7 +33,7 @@ public class AuthenticationController {
     private CustomUserDetailsService customUserDetailsService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<TokenResponse> register(@RequestBody UserDTO userDTO) {
         try {
             authenticationService.register(userDTO);
             return ResponseEntity.ok(new TokenResponse(jwtService.generateToken(userDTO)));

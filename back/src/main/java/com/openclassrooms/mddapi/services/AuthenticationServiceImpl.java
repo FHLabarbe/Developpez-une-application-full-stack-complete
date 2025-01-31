@@ -30,11 +30,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public void register(UserDTO userDTO) {
-        userDTO.setCreated_at(LocalDateTime.now());
-        userDTO.setUpdated_at(LocalDateTime.now());
-        userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
-        User user = modelMapper.map(userDTO, User.class);
-        userRepository.save(user);
+      if (userRepository.findByEmail(userDTO.getEmail()) != null) {
+        throw new RuntimeException("Un utilisateur avec cet email existe déjà.");
+      }
+      userDTO.setCreated_at(LocalDateTime.now());
+      userDTO.setUpdated_at(LocalDateTime.now());
+      userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+      User user = modelMapper.map(userDTO, User.class);
+      userRepository.save(user);
     }
 
     @Override

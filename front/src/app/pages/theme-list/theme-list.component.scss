@@ -1,0 +1,20 @@
+.theme-list-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.theme-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.theme-card {
+  width: 300px;
+}
+
+mat-card {
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,13 @@
+<header class="header-container">
+    <img class="logo" src="assets/logo_p6.png" alt="mdd logo">
+
+    <nav *ngIf="showNav" class="nav-links">
+        <a routerLink="/articles" routerLinkActive="active">Articles</a>
+        <a routerLink="/themeList" routerLinkActive="active">Thèmes</a>
+    </nav>
+
+    <div *ngIf="showProfile" class="profile">
+        <img src="assets/icon_user.png" alt="profil" class="profile-img">
+    </div>
+</header>
+<hr>
