@@ -4,7 +4,8 @@
     justify-content: space-between;
     color: white;
     padding: 10px 20px;
-    height: 60px;
+    min-height: 100px;
+    z-index: 100;
 }
 
 .logo {
@@ -23,6 +24,7 @@
     color: black;
     font-size: 18px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .nav-links a.active {
@@ -36,8 +38,8 @@
 }
 
 .profile-img {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-color: #D9D9D9;
+    cursor: pointer;
 }

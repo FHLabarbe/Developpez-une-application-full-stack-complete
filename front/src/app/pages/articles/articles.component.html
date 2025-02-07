@@ -1,1 +1,23 @@
-<p>articles works!</p>
+<div class="article-list-container">
+  <h2>Liste des Articles</h2>
+  <button mat-raised-button color="accent" [routerLink]="['/articles/create']">
+  Créer un article
+  </button>
+  <div class="articles-grid">
+    <mat-card *ngFor="let article of articles" class="article-card">
+      <mat-card-header>
+        <mat-card-title>{{ article.title }}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="article-date">{{ article.createdAt | date:'mediumDate' }}</span> • 
+          <span class="article-author">Auteur: {{ article.authorId }}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="article-content">{{ article.content }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Lire plus</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

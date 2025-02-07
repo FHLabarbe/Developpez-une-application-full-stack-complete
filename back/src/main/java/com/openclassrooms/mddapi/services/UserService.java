@@ -4,4 +4,5 @@ import com.openclassrooms.mddapi.dto.UserWithoutPasswordDTO;
 
 public interface UserService {
     public UserWithoutPasswordDTO findUserById(Integer id);
+    public UserWithoutPasswordDTO findByEmail(String email);
 }

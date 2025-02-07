@@ -48,25 +48,58 @@ public class ThemeService {
         return themeMapper.toDto(saved);
     }
 
+    public List<SubscriptionDTO> getSubscriptionsByUserId(String userEmail){
+        User user = userRepository.findByEmail(userEmail);
+        Optional<List<Subscription>> subscriptionsOpt = subscriptionRepository.findByUser(user);
+        if (subscriptionsOpt.isEmpty()){
+            throw new RuntimeException("Aucun abonnement trouvé");
+        }
+        List<Subscription> subscriptions = subscriptionsOpt.get();
+        return subscriptionMapper.toDtoList(subscriptions);
+    }
+
     @Transactional
     public SubscriptionDTO subscribeUserToTheme(Integer themeId, String email) {
         Optional<Theme> themeOpt = themeRepository.findById(themeId);
-        User user = userRepository.findByEmail(email);
-
         if (themeOpt.isEmpty()) {
             throw new RuntimeException("Thème introuvable.");
         }
         Theme theme = themeOpt.get();
 
-        Optional<Subscription> existingSubscription = subscriptionRepository.findByThemeAndUser(theme, user);
-        if (existingSubscription.isPresent()) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new RuntimeException("Utilisateur introuvable.");
+        }
+
+        Optional<Subscription> existing = subscriptionRepository.findByThemeAndUser(theme, user);
+        if (existing.isPresent()) {
             throw new RuntimeException("L'utilisateur est déjà abonné à ce thème.");
         }
+
         Subscription subscription = new Subscription();
         subscription.setTheme(theme);
         subscription.setUser(user);
+
         Subscription savedSubscription = subscriptionRepository.save(subscription);
 
         return subscriptionMapper.toDto(savedSubscription);
+    }
+
+    @Transactional
+    public void unsubscribeUserFromTheme(Integer themeId, String email) {
+        Theme theme = themeRepository.findById(themeId)
+                .orElseThrow(() -> new RuntimeException("Thème introuvable"));
+
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new RuntimeException("Utilisateur introuvable");
+        }
+
+        Optional<Subscription> existingSubscription = subscriptionRepository.findByThemeAndUser(theme, user);
+        if (existingSubscription.isEmpty()) {
+            throw new RuntimeException("Aucun abonnement trouvé pour ce thème et cet utilisateur");
+        }
+
+        subscriptionRepository.delete(existingSubscription.get());
     }
 }

@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.openclassrooms.mddapi.dto.UserDTO;
 import com.openclassrooms.mddapi.dto.UserWithoutPasswordDTO;
 import com.openclassrooms.mddapi.entities.User;
 import com.openclassrooms.mddapi.repositories.UserRepository;
@@ -30,4 +29,16 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public UserWithoutPasswordDTO findByEmail(String email) {
+        User user = userRepository.findByEmail(email);
+        UserWithoutPasswordDTO userDTO = new UserWithoutPasswordDTO(user.getEmail());
+        userDTO.setId(user.getId());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setCreated_at(user.getCreated_at());
+        userDTO.setUpdated_at(user.getUpdated_at());
+        return userDTO;
+    }
+
 }

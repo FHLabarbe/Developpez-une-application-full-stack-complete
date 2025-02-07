@@ -1,0 +1,26 @@
+.separation{
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+.me-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.abonnement-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}

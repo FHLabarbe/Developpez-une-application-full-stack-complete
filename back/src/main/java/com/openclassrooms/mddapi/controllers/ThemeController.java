@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,4 +41,18 @@ public class ThemeController {
         SubscriptionDTO subscription = themeService.subscribeUserToTheme(id, principal.getName());
         return ResponseEntity.ok(subscription);
     }
+
+    @DeleteMapping("/{id}/subscribe")
+    public ResponseEntity<?> unsubscribeFromTheme(@PathVariable Integer id, Principal principal) {
+        String userEmail = principal.getName();
+        themeService.unsubscribeUserFromTheme(id, userEmail);
+        return ResponseEntity.ok("Désabonnement réussi");
+    }
+
+    @GetMapping("/subscribe")
+    public List<SubscriptionDTO> getSubscriptionsByUser(Principal principal) {
+        String userEmail = principal.getName();
+        return themeService.getSubscriptionsByUserId(userEmail);
+    }
+
 }

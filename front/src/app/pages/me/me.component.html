@@ -1,0 +1,45 @@
+<div class="me-container">
+  <h2>Profil utilisateur</h2>
+  <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="userForm.invalid"
+    >
+      Sauvegarder
+    </button>
+  </form>
+</div>
+<hr class="separation" />
+
+<div class="abonnement-container">
+  <h2>Mes abonnements</h2>
+  <mat-card *ngFor="let sub of subscriptions" class="theme-card">
+    <mat-card-header>
+      <mat-card-title>{{ sub.theme.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ sub.theme.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="unsubscribe(sub)">
+        Se désabonner
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noSubs>
+  <p>Aucun abonnement pour l'instant.</p>
+</ng-template>

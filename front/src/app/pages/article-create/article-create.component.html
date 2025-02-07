@@ -1,0 +1,29 @@
+<app-back-button></app-back-button>
+<div class="article-create-container">
+  <h2>Créer un nouvel article</h2>
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Sélectionnez un thème</mat-label>
+      <mat-select formControlName="themeId" required>
+        <mat-option *ngFor="let theme of themes" [value]="theme.id">
+          {{ theme.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Titre de l'article</mat-label>
+      <input matInput formControlName="title" maxlength="200" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Contenu de l'article</mat-label>
+      <textarea matInput formControlName="content" rows="6" required></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="articleForm.invalid">
+      Créer l'article
+    </button>
+  </form>
+</div>
