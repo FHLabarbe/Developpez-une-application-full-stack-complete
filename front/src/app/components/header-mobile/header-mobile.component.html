@@ -1,0 +1,25 @@
+<header class="header-mobile">
+  <img class="logo" src="assets/logo_p6.png" alt="Logo" />
+  <button mat-icon-button [mat-menu-trigger-for]="menu" *ngIf="showMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</header>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/articles']">
+    <span>Articles</span>
+  </button>
+  <button mat-menu-item [routerLink]="['/themeList']">
+    <span>Thèmes</span>
+  </button>
+  <div class="profile">
+    <img
+      (click)="redirectToMe()"
+      aria-label="Mon profil"
+      (keydown.enter)="redirectToMe()"
+      [src]="sourceImage"
+      alt="profil"
+      class="profile-img"
+    />
+  </div>
+</mat-menu>

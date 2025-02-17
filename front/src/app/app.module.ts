@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { PagesModule } from './pages/pages.module';
-import { MeComponent } from './pages/me/me.component';
 
 @NgModule({
   declarations: [

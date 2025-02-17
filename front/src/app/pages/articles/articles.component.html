@@ -3,6 +3,13 @@
   <button mat-raised-button color="accent" [routerLink]="['/articles/create']">
   Créer un article
   </button>
+  <div class="sort-container">
+  <label for="sortSelect">Trier par :</label>
+  <select id="sortSelect" [formControl]="sortControl" (change)="onSortChange(sortControl.value!)">
+    <option value="dateDesc">Date (Plus récent)</option>
+    <option value="dateAsc">Date (Plus ancien)</option>
+  </select>
+</div>
   <div class="articles-grid">
     <mat-card *ngFor="let article of articles" class="article-card">
       <mat-card-header>
@@ -16,7 +23,7 @@
         <p class="article-content">{{ article.content }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary">Lire plus</button>
+        <button mat-raised-button [routerLink]="['/article', article.id]" color="primary">Lire plus</button>
       </mat-card-actions>
     </mat-card>
   </div>

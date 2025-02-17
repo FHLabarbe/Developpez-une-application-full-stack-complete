@@ -1,11 +1,6 @@
-<header class="header-container">
-    <img class="logo" src="assets/logo_p6.png" alt="mdd logo">
-    <nav *ngIf="showNav" class="nav-links">
-        <a routerLink="/articles" routerLinkActive="active">Articles</a>
-        <a routerLink="/themeList" routerLinkActive="active">Thèmes</a>
-    </nav>
-    <div *ngIf="showProfile" class="profile">
-        <img (click)="redirectToMe()" aria-label="Mon profil" (keydown.enter)="redirectToMe()" [src]="sourceImage" alt="profil" class="profile-img">
-    </div>
-</header>
-<hr>
+<ng-container *ngIf="!isMobile; else mobileHeader">
+  <app-header-desktop></app-header-desktop>
+</ng-container>
+<ng-template #mobileHeader>
+  <app-header-mobile></app-header-mobile>
+</ng-template>

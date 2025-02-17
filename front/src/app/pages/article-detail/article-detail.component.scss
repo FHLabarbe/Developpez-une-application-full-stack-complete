@@ -1,0 +1,42 @@
+.article-detail-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.meta {
+  font-size: 0.9em;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.article-content {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.comments {
+  margin-bottom: 30px;
+}
+
+.comment {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.add-comment {
+  margin-top: 20px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}

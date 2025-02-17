@@ -1,0 +1,41 @@
+<app-back-button></app-back-button>
+<div class="article-detail-container" *ngIf="articleDetail">
+  <h1>{{ articleDetail.title }}</h1>
+  <p class="meta">
+    Publié le {{ articleDetail.createdAt | date:'medium' }} par {{ articleDetail.authorUsername }}
+    dans le thème {{ articleDetail.themeName }}
+  </p>
+  <div class="article-content">
+    <p>{{ articleDetail.content }}</p>
+  </div>
+
+  <hr>
+
+  <h2>Commentaires</h2>
+  <div class="comments">
+    <div *ngFor="let comment of articleDetail.comments" class="comment">
+      <div class="comment-header">
+        <strong>{{ comment.username }}</strong>
+        <span class="comment-date">{{ comment.createdAt | date:'short' }}</span>
+      </div>
+      <div class="comment-content">
+        <p>{{ comment.content }}</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="add-comment">
+    <h3>Ajouter un commentaire</h3>
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Votre commentaire</mat-label>
+        <textarea matInput formControlName="content" rows="3"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid">
+        Envoyer
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<header class="header-container">
+  <img class="logo" src="assets/logo_p6.png" alt="mdd logo" />
+  <div *ngIf="showNav" class="nav-bar">
+    <nav class="nav-links">
+      <a routerLink="/articles" routerLinkActive="active">Articles</a>
+      <a routerLink="/themeList" routerLinkActive="active">Thèmes</a>
+    </nav>
+    <div class="profile">
+      <img
+        (click)="redirectToMe()"
+        aria-label="Mon profil"
+        (keydown.enter)="redirectToMe()"
+        [src]="sourceImage"
+        alt="profil"
+        class="profile-img"
+      />
+    </div>
+  </div>
+</header>
+<hr />

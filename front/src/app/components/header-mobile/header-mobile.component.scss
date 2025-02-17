@@ -1,0 +1,18 @@
+.header-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  min-height: 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px
+}
+
+button[mat-icon-button] {
+  background-color: #fff;
+  border: none;  
+}

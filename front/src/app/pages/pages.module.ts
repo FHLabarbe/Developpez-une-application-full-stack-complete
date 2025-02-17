@@ -19,6 +19,7 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select'
 import { MeComponent } from './me/me.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MeComponent } from './me/me.component';
     ThemeListComponent,
     ArticleListComponent,
     HomeComponent,
-    MeComponent
+    MeComponent,
+    ArticleDetailComponent
   ],
   imports: [
     CommonModule,

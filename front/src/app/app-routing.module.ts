@@ -8,6 +8,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ArticleListComponent } from './pages/articles/articles.component';
 import { ArticleCreateComponent } from './pages/article-create/article-create.component';
 import { MeComponent } from './pages/me/me.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'themeList', component: ThemeListComponent, canActivate: [AuthGuard] },
   { path: 'articles', component: ArticleListComponent, canActivate: [AuthGuard] },
   { path: 'articles/create', component: ArticleCreateComponent, canActivate: [AuthGuard]},
-  { path: 'me', component: MeComponent, canActivate: [AuthGuard]}
+  { path: 'me', component: MeComponent, canActivate: [AuthGuard]},
+  { path: 'article/:id', component: ArticleDetailComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
