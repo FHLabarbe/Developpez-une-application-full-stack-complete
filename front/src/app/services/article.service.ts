@@ -14,8 +14,8 @@ export class ArticleService {
 
   constructor(private http: HttpClient) {}
 
-  getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.baseUrl);
+  getArticles(): Observable<ArticleDetail[]> {
+    return this.http.get<ArticleDetail[]>(this.baseUrl);
   }
 
   createArticle(article: Article): Observable<Article> {

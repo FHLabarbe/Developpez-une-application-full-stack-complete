@@ -41,9 +41,9 @@ public class ArticleService {
         this.commentMapper = commentMapper;
     }
 
-    public List<ArticleDTO> getAllArticles() {
+    public List<ArticleDetailDTO> getAllArticles() {
         List<Article> articles = articleRepository.findAll();
-        return articleMapper.toDtoList(articles);
+        return articleMapper.toDetailDtoList(articles);
     }
 
     @Transactional

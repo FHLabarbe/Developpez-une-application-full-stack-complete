@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Article } from 'src/app/models/article';
+import { ArticleDetail } from 'src/app/models/article-detail';
 import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ArticleService } from 'src/app/services/article.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ArticleListComponent implements OnInit {
-  articles: Article[] = [];
+  articles: ArticleDetail[] = [];
   sortControl = new FormControl('dateDesc');
 
   constructor(private articleService: ArticleService, private router: Router) {}
@@ -21,7 +22,8 @@ export class ArticleListComponent implements OnInit {
   }
 
   toDetails(articleId?: number) {
-    this.router.navigate([`/articles-details/${articleId}`]);
+    console.log("Click sur l'article ID : ", articleId);
+    this.router.navigate([`/article/${articleId}`]);
   }
 
   loadArticles(): void {
@@ -34,9 +36,21 @@ export class ArticleListComponent implements OnInit {
 
   onSortChange(sort: string): void {
     if (sort === 'dateDesc') {
-      this.articles.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+      this.articles.sort(
+        (a, b) =>
+          new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime()
+      );
     } else if (sort === 'dateAsc') {
-      this.articles.sort((a, b) => new Date(a.createdAt!).getTime() - new Date(b.createdAt!).getTime());
+      this.articles.sort(
+        (a, b) =>
+          new Date(a.createdAt!).getTime() - new Date(b.createdAt!).getTime()
+      );
     }
+  }
+
+  toggleSortOrder(): void {
+    const newSort = this.sortControl.value === 'dateDesc' ? 'dateAsc' : 'dateDesc';
+    this.sortControl.setValue(newSort);
+    this.onSortChange(newSort);
   }
 }

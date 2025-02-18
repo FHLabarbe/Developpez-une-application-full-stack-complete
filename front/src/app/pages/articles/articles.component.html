@@ -1,30 +1,42 @@
 <div class="article-list-container">
-  <h2>Liste des Articles</h2>
-  <button mat-raised-button color="accent" [routerLink]="['/articles/create']">
-  Créer un article
-  </button>
-  <div class="sort-container">
-  <label for="sortSelect">Trier par :</label>
-  <select id="sortSelect" [formControl]="sortControl" (change)="onSortChange(sortControl.value!)">
-    <option value="dateDesc">Date (Plus récent)</option>
-    <option value="dateAsc">Date (Plus ancien)</option>
-  </select>
-</div>
+  <div class="top-actions">
+    <button
+      mat-raised-button
+      color="primary"
+      class="create-button"
+      [routerLink]="['/articles/create']"
+    >
+      Créer un article
+    </button>
+    <div class="sort-container">
+    <label>Trier par</label>
+    <button mat-icon-button (click)="toggleSortOrder()">
+      <mat-icon>
+        {{ sortControl.value === 'dateDesc' ? 'arrow_downward' : 'arrow_upward' }}
+      </mat-icon>
+    </button>
+  </div>
+  </div>
   <div class="articles-grid">
-    <mat-card *ngFor="let article of articles" class="article-card">
+    <mat-card
+      *ngFor="let article of articles"
+      class="article-card"
+      (click)="toDetails(article.id)"
+      (keydown.enter)="toDetails(article.id)"
+    >
       <mat-card-header>
         <mat-card-title>{{ article.title }}</mat-card-title>
-        <mat-card-subtitle>
-          <span class="article-date">{{ article.createdAt | date:'mediumDate' }}</span> • 
-          <span class="article-author">Auteur: {{ article.authorId }}</span>
+        <mat-card-subtitle class="subtitles">
+          <span class="article-date">{{
+            article.createdAt | date : "mediumDate"
+          }}</span>
+          •
+          <span class="article-author">{{ article.authorUsername }}</span>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p class="article-content">{{ article.content }}</p>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button [routerLink]="['/article', article.id]" color="primary">Lire plus</button>
-      </mat-card-actions>
     </mat-card>
   </div>
 </div>
