@@ -1,18 +1,18 @@
-<header class="header-mobile">
-  <img class="logo" src="assets/logo_p6.png" alt="Logo" />
-  <button mat-icon-button [mat-menu-trigger-for]="menu" *ngIf="showMenu">
+<header class="header-mobile" [ngClass]="{'center-logo': !showMenu, 'left-logo': showMenu}">
+  <img [ngClass]="{'logo-centered': !showMenu, 'logo-left': showMenu}" src="assets/logo_p6.png" alt="Logo" />
+  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="showMenu">
     <mat-icon>menu</mat-icon>
   </button>
 </header>
 
-<mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" panelClass="full-height-menu">
   <button mat-menu-item [routerLink]="['/articles']">
     <span>Articles</span>
   </button>
   <button mat-menu-item [routerLink]="['/themeList']">
     <span>Thèmes</span>
   </button>
-  <div class="profile">
+    <div class="profile">
     <img
       (click)="redirectToMe()"
       aria-label="Mon profil"
@@ -23,3 +23,4 @@
     />
   </div>
 </mat-menu>
+<hr *ngIf="showMenu">

@@ -3,7 +3,7 @@
   <h2>Créer un nouvel article</h2>
   <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
     
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field color="primary" appearance="outline" class="full-width">
       <mat-label>Sélectionnez un thème</mat-label>
       <mat-select formControlName="themeId" required>
         <mat-option *ngFor="let theme of themes" [value]="theme.id">

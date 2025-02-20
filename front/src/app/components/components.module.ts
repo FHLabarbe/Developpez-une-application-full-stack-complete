@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
     NgIf,
     RouterModule,
     MatMenuModule,
+    CommonModule
   ],
   exports: [
     BackButtonComponent,

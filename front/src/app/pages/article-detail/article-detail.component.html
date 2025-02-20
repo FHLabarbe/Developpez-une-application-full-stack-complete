@@ -2,39 +2,40 @@
 <div class="article-detail-container" *ngIf="articleDetail">
   <h1>{{ articleDetail.title }}</h1>
   <p class="meta">
-    Publié le {{ articleDetail.createdAt | date:'medium' }} par {{ articleDetail.authorUsername }}
-    dans le thème {{ articleDetail.themeName }}
+    <span class="meta-item">{{
+      articleDetail.createdAt | date : "short"
+    }}</span>
+    <span class="meta-item">{{ articleDetail.authorUsername }}</span>
+    <span class="meta-item">{{ articleDetail.themeName }}</span>
   </p>
   <div class="article-content">
     <p>{{ articleDetail.content }}</p>
   </div>
 
-  <hr>
+  <hr />
 
-  <h2>Commentaires</h2>
+  <p>Commentaires</p>
   <div class="comments">
     <div *ngFor="let comment of articleDetail.comments" class="comment">
-      <div class="comment-header">
-        <strong>{{ comment.username }}</strong>
-        <span class="comment-date">{{ comment.createdAt | date:'short' }}</span>
-      </div>
-      <div class="comment-content">
-        <p>{{ comment.content }}</p>
+      <div class="comment-item">
+        <div class="comment-author">
+          {{ comment.username }}
+        </div>
+        <div class="comment-box">
+          <p>{{ comment.content }}</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <hr>
-
   <div class="add-comment">
-    <h3>Ajouter un commentaire</h3>
-    <form [formGroup]="commentForm" (ngSubmit)="submitComment()">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Votre commentaire</mat-label>
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()" class="form">
+      <mat-form-field appearance="outline" class="comment-area">
+        <mat-label>Écrivez ici votre commentaire</mat-label>
         <textarea matInput formControlName="content" rows="3"></textarea>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid">
-        Envoyer
+      <button mat-icon-button type="submit" [disabled]="commentForm.invalid">
+        <img src="assets/icon_send.png" alt="Envoyer" class="send-icon" />
       </button>
     </form>
   </div>
