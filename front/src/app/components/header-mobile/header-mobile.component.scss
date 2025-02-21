@@ -4,6 +4,7 @@
   align-items: center;
   padding: 10px 20px;
   min-height: 60px;
+  background-color: #fff;
 }
 
 .header-mobile.left-logo {
@@ -12,17 +13,81 @@
   align-items: center;
   padding: 10px 20px;
   min-height: 60px;
+  background-color: #fff;
 }
 
 button[mat-icon-button] {
   background-color: #fff;
   border: none;
+  cursor: pointer;
 }
+
+.theme-button,.article-button,.person-button{
+  border: none;
+}
+
 
 .logo-centered {
   width: 250px;
+  cursor: pointer;
 }
 
 .logo-left {
   width: 100px;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-open {
+  transform: translateX(0);
+}
+
+.sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-bottom {
+  text-align: center;
+}
+
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }

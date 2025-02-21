@@ -1,6 +1,12 @@
-<app-back-button></app-back-button>
+<div class="article-header">
+  <div class="left-col">
+    <app-back-button class="back-button"></app-back-button>
+    <h1 class="detail-title">{{ articleDetail?.title }}</h1>
+  </div>
+  <div class="middle-col"></div>
+  <div class="right-col"></div>
+</div>
 <div class="article-detail-container" *ngIf="articleDetail">
-  <h1>{{ articleDetail.title }}</h1>
   <p class="meta">
     <span class="meta-item">{{
       articleDetail.createdAt | date : "short"

@@ -24,8 +24,8 @@
 <button mat-button color="warn" class="disconnect" (click)="logout()">Se déconnecter</button>
 <hr class="separation" />
 
+<h2 class="subscribe-title">Abonnements</h2>
 <div class="abonnement-container">
-  <h2>Mes abonnements</h2>
   <mat-card *ngFor="let sub of subscriptions" class="theme-card">
     <mat-card-header>
       <mat-card-title>{{ sub.theme.name }}</mat-card-title>
@@ -34,7 +34,7 @@
       <p>{{ sub.theme.description }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="warn" (click)="unsubscribe(sub)">
+      <button mat-raised-button color="primary" (click)="unsubscribe(sub)">
         Se désabonner
       </button>
     </mat-card-actions>

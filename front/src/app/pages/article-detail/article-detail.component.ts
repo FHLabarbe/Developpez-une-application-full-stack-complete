@@ -8,7 +8,7 @@ import { ArticleService } from 'src/app/services/article.service';
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.scss']
+  styleUrls: ['./article-detail.component.scss'],
 })
 export class ArticleDetailComponent implements OnInit {
   articleDetail?: ArticleDetail;
@@ -20,19 +20,29 @@ export class ArticleDetailComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.commentForm = this.fb.group({
-      content: ['', Validators.required]
+      content: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
-    const articleId = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadArticleDetail(articleId);
+    if (!localStorage.getItem('reloaded')) {
+      localStorage.setItem('reloaded', 'true');
+      window.location.reload();
+    } else {
+      localStorage.removeItem('reloaded');
+      const articleId = Number(this.route.snapshot.paramMap.get('id'));
+      this.loadArticleDetail(articleId);
+    }
   }
 
   loadArticleDetail(articleId: number): void {
     this.articleService.getArticleDetail(articleId).subscribe({
-      next: (data) => this.articleDetail = data,
-      error: (err) => console.error('Erreur lors du chargement des détails de l\'article', err)
+      next: (data) => (this.articleDetail = data),
+      error: (err) =>
+        console.error(
+          "Erreur lors du chargement des détails de l'article",
+          err
+        ),
     });
   }
 
@@ -46,9 +56,9 @@ export class ArticleDetailComponent implements OnInit {
           this.commentForm.reset();
         },
         error: (err) => {
-          console.error('Erreur lors de l\'ajout du commentaire', err);
+          console.error("Erreur lors de l'ajout du commentaire", err);
           alert("Erreur lors de l'ajout du commentaire");
-        }
+        },
       });
     }
   }

@@ -27,6 +27,10 @@ export class HeaderDesktopComponent implements OnInit{
     this.router.navigate(['/me']);
   }
 
+  redirectToArticles(){
+    this.router.navigate(['/articles']);
+  }
+
   updateHeader(url: string): void {
     console.log("url détectée par updateHeader :",url);
     if (url.includes('/login') || url.includes('/register')) {
@@ -35,6 +39,8 @@ export class HeaderDesktopComponent implements OnInit{
     }
     else if (url.includes('/me')){
       this.sourceImage = '/assets/icon_user_purple.png'
+      this.showNav = true;
+      this.showProfile = true;
     }
     else {
       this.sourceImage = "/assets/icon_user.png";

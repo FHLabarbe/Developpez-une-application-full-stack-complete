@@ -5,9 +5,10 @@
 
 .me-container {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 50px auto 20px auto;
   padding: 20px;
   border-radius: 8px;
+  text-align: center;
 }
 
 .abonnement-container {
@@ -20,6 +21,22 @@
   margin: 0 auto;
 }
 
+.theme-card mat-card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+mat-card {
+  background-color: #F5F5F5;
+}
+
+.subscribe-title {
+  text-align: center;
+  margin: 20px auto;
+}
+
+
 .full-width {
   width: 100%;
   margin-bottom: 15px;
@@ -27,5 +44,5 @@
 
 .disconnect {
   display: grid;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
 }
