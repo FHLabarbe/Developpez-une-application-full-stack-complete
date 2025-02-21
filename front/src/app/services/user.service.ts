@@ -4,12 +4,10 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Subscription } from '../models/subscription';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
   private baseUrl = 'http://localhost:8080/api/me';
 
   constructor(private http: HttpClient) {}
@@ -23,6 +21,8 @@ export class UserService {
   }
 
   getUserSubscriptions(): Observable<Subscription[]> {
-    return this.http.get<Subscription[]>(`http://localhost:8080/api/themes/subscribe`);
+    return this.http.get<Subscription[]>(
+      `http://localhost:8080/api/themes/subscribe`
+    );
   }
 }

@@ -22,7 +22,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   toDetails(articleId?: number) {
-    console.log("Click sur l'article ID : ", articleId);
     this.router.navigate([`/article/${articleId}`]);
   }
 
@@ -49,7 +48,8 @@ export class ArticleListComponent implements OnInit {
   }
 
   toggleSortOrder(): void {
-    const newSort = this.sortControl.value === 'dateDesc' ? 'dateAsc' : 'dateDesc';
+    const newSort =
+      this.sortControl.value === 'dateDesc' ? 'dateAsc' : 'dateDesc';
     this.sortControl.setValue(newSort);
     this.onSortChange(newSort);
   }

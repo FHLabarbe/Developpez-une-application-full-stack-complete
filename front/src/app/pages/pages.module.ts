@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../components/components.module';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { MatOptionModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 import { MeComponent } from './me/me.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
@@ -31,7 +31,7 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
     ArticleListComponent,
     HomeComponent,
     MeComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +55,7 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
     ArticleListComponent,
     HomeComponent,
     RouterModule,
-    MeComponent
-  ]
+    MeComponent,
+  ],
 })
-export class PagesModule { }
+export class PagesModule {}

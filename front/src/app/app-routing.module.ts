@@ -12,18 +12,33 @@ import { ArticleDetailComponent } from './pages/article-detail/article-detail.co
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'themeList', component: ThemeListComponent, canActivate: [AuthGuard] },
-  { path: 'articles', component: ArticleListComponent, canActivate: [AuthGuard] },
-  { path: 'articles/create', component: ArticleCreateComponent, canActivate: [AuthGuard]},
-  { path: 'me', component: MeComponent, canActivate: [AuthGuard]},
-  { path: 'article/:id', component: ArticleDetailComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'themeList',
+    component: ThemeListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'articles',
+    component: ArticleListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'articles/create',
+    component: ArticleCreateComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'me', component: MeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'article/:id',
+    component: ArticleDetailComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-
 export class AppRoutingModule {}

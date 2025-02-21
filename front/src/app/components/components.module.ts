@@ -13,20 +13,14 @@ import { MatMenuModule } from '@angular/material/menu';
     BackButtonComponent,
     HeaderDesktopComponent,
     HeaderMobileComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
-  imports: [
-    MatIconModule,
-    NgIf,
-    RouterModule,
-    MatMenuModule,
-    CommonModule
-  ],
+  imports: [MatIconModule, NgIf, RouterModule, MatMenuModule, CommonModule],
   exports: [
     BackButtonComponent,
     HeaderDesktopComponent,
     HeaderMobileComponent,
-    HeaderComponent
-  ]
+    HeaderComponent,
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

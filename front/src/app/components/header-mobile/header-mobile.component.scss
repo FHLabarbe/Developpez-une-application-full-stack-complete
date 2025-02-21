@@ -22,10 +22,11 @@ button[mat-icon-button] {
   cursor: pointer;
 }
 
-.theme-button,.article-button,.person-button{
+.theme-button,
+.article-button,
+.person-button {
   border: none;
 }
-
 
 .logo-centered {
   width: 250px;
@@ -73,7 +74,6 @@ button[mat-icon-button] {
 .sidebar-bottom {
   text-align: center;
 }
-
 
 .profile-img {
   width: 50px;

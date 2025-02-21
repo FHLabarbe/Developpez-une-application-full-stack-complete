@@ -1,5 +1,11 @@
 <header class="header-container">
-  <img class="logo" src="assets/logo_p6.png" alt="mdd logo" (click)="redirectToArticles()" (keydown.enter)="redirectToArticles()"/>
+  <img
+    class="logo"
+    src="assets/logo_p6.png"
+    alt="mdd logo"
+    (click)="redirectToArticles()"
+    (keydown.enter)="redirectToArticles()"
+  />
   <div *ngIf="showNav" class="nav-bar">
     <nav class="nav-links">
       <a routerLink="/articles" routerLinkActive="active">Articles</a>

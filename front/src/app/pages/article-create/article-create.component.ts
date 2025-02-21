@@ -8,7 +8,7 @@ import { ThemeService } from 'src/app/services/theme.service';
 @Component({
   selector: 'app-article-create',
   templateUrl: './article-create.component.html',
-  styleUrls: ['./article-create.component.scss']
+  styleUrls: ['./article-create.component.scss'],
 })
 export class ArticleCreateComponent implements OnInit {
   articleForm: FormGroup;
@@ -20,11 +20,10 @@ export class ArticleCreateComponent implements OnInit {
     private articleService: ArticleService,
     private router: Router
   ) {
-
     this.articleForm = this.fb.group({
       themeId: [null, Validators.required],
       title: ['', [Validators.required, Validators.maxLength(200)]],
-      content: ['', Validators.required]
+      content: ['', Validators.required],
     });
   }
 
@@ -34,8 +33,9 @@ export class ArticleCreateComponent implements OnInit {
 
   loadThemes(): void {
     this.themeService.getThemes().subscribe({
-      next: (data) => this.themes = data,
-      error: (err) => console.error("Erreur lors du chargement des thèmes", err)
+      next: (data) => (this.themes = data),
+      error: (err) =>
+        console.error('Erreur lors du chargement des thèmes', err),
     });
   }
 
@@ -43,13 +43,13 @@ export class ArticleCreateComponent implements OnInit {
     if (this.articleForm.valid) {
       this.articleService.createArticle(this.articleForm.value).subscribe({
         next: (result) => {
-          alert("Article créé avec succès !");
+          alert('Article créé avec succès !');
           this.router.navigate(['/articles']);
         },
         error: (err) => {
           console.error("Erreur lors de la création de l'article", err);
           alert("Erreur lors de la création de l'article");
-        }
+        },
       });
     }
   }

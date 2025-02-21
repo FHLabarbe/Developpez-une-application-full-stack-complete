@@ -1,4 +1,4 @@
-import { CommentDTO } from "./commentDTO";
+import { CommentDTO } from './commentDTO';
 
 export interface ArticleDetail {
   id: number;

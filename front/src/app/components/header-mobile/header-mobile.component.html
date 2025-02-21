@@ -38,12 +38,14 @@
     </div>
     <div class="sidebar-bottom">
       <div class="profile">
-        <img (click)="redirectToMe(); closeSidebar()"
-             aria-label="Mon profil"
-             (keydown.enter)="redirectToMe()"
-             [src]="sourceImage"
-             alt="profil"
-             class="profile-img" />
+        <img
+          (click)="redirectToMe(); closeSidebar()"
+          aria-label="Mon profil"
+          (keydown.enter)="redirectToMe()"
+          [src]="sourceImage"
+          alt="profil"
+          class="profile-img"
+        />
       </div>
     </div>
   </div>

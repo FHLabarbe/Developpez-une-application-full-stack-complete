@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Theme } from '../models/theme';
 import { Subscription } from '../models/subscription';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-
   private baseUrl = 'http://localhost:8080/api/themes';
 
   constructor(private http: HttpClient) {}
@@ -22,7 +21,7 @@ export class ThemeService {
     return this.http.post(url, {});
   }
 
-  public unsubscribeFromTheme(themeId: number): Observable<any>{
+  public unsubscribeFromTheme(themeId: number): Observable<any> {
     const url = `${this.baseUrl}/${themeId}/subscribe`;
     return this.http.delete(url);
   }

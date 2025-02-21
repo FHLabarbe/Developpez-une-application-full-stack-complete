@@ -6,10 +6,9 @@ import { ArticleDetail } from '../models/article-detail';
 import { CommentDTO } from '../models/commentDTO';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleService {
-
   private baseUrl = 'http://localhost:8080/api/articles';
 
   constructor(private http: HttpClient) {}
@@ -27,7 +26,8 @@ export class ArticleService {
   }
 
   addComment(articleId: number, content: string): Observable<CommentDTO> {
-    return this.http.post<CommentDTO>(`${this.baseUrl}/${articleId}/comments`, {content});
+    return this.http.post<CommentDTO>(`${this.baseUrl}/${articleId}/comments`, {
+      content,
+    });
   }
-
 }

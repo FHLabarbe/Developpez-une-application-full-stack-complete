@@ -9,13 +9,15 @@
       Créer un article
     </button>
     <div class="sort-container">
-    <label>Trier par</label>
-    <button mat-icon-button (click)="toggleSortOrder()">
-      <mat-icon>
-        {{ sortControl.value === 'dateDesc' ? 'arrow_downward' : 'arrow_upward' }}
-      </mat-icon>
-    </button>
-  </div>
+      <label>Trier par</label>
+      <button mat-icon-button (click)="toggleSortOrder()">
+        <mat-icon>
+          {{
+            sortControl.value === "dateDesc" ? "arrow_downward" : "arrow_upward"
+          }}
+        </mat-icon>
+      </button>
+    </div>
   </div>
   <div class="articles-grid">
     <mat-card

@@ -20,7 +20,7 @@ export class MeComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private themeService: ThemeService,
-    private router: Router,
+    private router: Router
   ) {
     this.userForm = this.fb.group({
       username: ['', Validators.required],

@@ -1,7 +1,7 @@
-import { Theme } from "./theme";
+import { Theme } from './theme';
 
 export interface Subscription {
-    id: number;
-    theme : Theme;
-    userId: number;
+  id: number;
+  theme: Theme;
+  userId: number;
 }

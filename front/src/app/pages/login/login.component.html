@@ -4,22 +4,26 @@
 </div>
 <div class="login-container">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Adresse e-mail</mat-label>
-      <input matInput type="email" formControlName="email" required>
+      <input matInput type="email" formControlName="email" required />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Mot de passe</mat-label>
-      <input matInput type="password" formControlName="password" required>
+      <input matInput type="password" formControlName="password" required />
     </mat-form-field>
 
     <div *ngIf="loginError" class="error-message">
-      {{loginError}} 
+      {{ loginError }}
     </div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="loginForm.invalid"
+    >
       Se connecter
     </button>
   </form>

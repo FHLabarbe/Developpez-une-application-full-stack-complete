@@ -5,7 +5,7 @@ import { UserRegister } from '../models/user-register';
 import { RegisterResponse } from '../models/register-response';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegisterService {
   private apiUrl = 'http://localhost:8080/api/auth/register';
